@@ -1,0 +1,202 @@
+﻿@model AutoInsurance.Models.Insuree
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Insuree</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarYear, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarMake, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarMake, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarMake, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DUI, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.DUI)
+                    @Html.ValidationMessageFor(model => model.DUI, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SpeedingTickets, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SpeedingTickets, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SpeedingTickets, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoverageType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CoverageType)
+                    @Html.ValidationMessageFor(model => model.CoverageType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quote, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quote, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Quote, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+   
+            <div class="row no-gutters m-0">
+                <div class="card col-5 md-5 mb-auto">
+                    <div class="card-header text-center">
+                        <h5 class="m-0">Auto Insurance Quote</h5>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Create", "Insuree", FormMethod.Post))
+
+                        {
+                            <div class="row no-gutters card-columns list-group-flush">
+                                <div class="form-group col-sm-12">
+                                    <label for="FirstName">First Name:</label>
+                                    @Html.TextBox("FirstName")
+                                    @Html.ValidationMessage("FirstName", "*")
+
+                                    @*<input name="FirstName" type="text" class="form-control" placeholder="First Name" />*@
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="LastName" type="text" class="form-control" placeholder="Last Name" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="EmailAddress" type="email" class="form-control" placeholder="Email Address" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="DateOfBirth" type="date" class="form-control" placeholder="Date of Birth" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="CarYear" type="date" class="form-control" placeholder="Year of Model" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="CarMake" type="text" class="form-control" placeholder="Make" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="CarModel" type="text" class="form-control" placeholder="Model" />
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="DUI">Do you have a DUI on your record?</label>
+                                    @*<input name="DUI" type="text" />*@
+                                    <select name="DUI" class="form-control" id="DUI">
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="SpeedingTickets">How many speeding tickets do you have?</label>
+                                    <select name="SpeedingTickets" class="form-control" id="NumOfSpeedingTickets">
+                                        <option value="0">none</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">+7</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="CoverageType">What kind of coverage would you like?</label>
+                                    <select name="CoverageType" class="form-control" id="Coverage">
+                                        <option>Full Coverage</option>
+                                        <option>Liability</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input name="Quote" type="text" class="form-control" placeholder="quote" />
+                                </div>
+
+                                <button type="submit" class="btn-primary">Submit</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+}
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

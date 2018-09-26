@@ -1,0 +1,28 @@
+﻿@{
+    // Working with numbers.
+    var a = 4;
+    var b = 5;
+    var theSum = a + b;
+
+    // Working with characters (strings).
+    var technology = "ASP.NET";
+    var product = "Web Pages";
+
+    // Working with objects.
+    var rightNow = DateTime.Now;
+}
+<div>
+    <p>The value of <em>a</em> is @a.  The value of <em>b</em> is @b.
+    <p>The sum of <em>a</em> and <em>b</em> is <strong>@theSum</strong>.</p>
+    <p>The product of <em>a</em> and <em>b</em> is <strong>@(a * b)</strong>.</p>
+</div>
+
+<div>
+    <p>The technology is @technology, and the product is @product.</p>
+    <p>Together they are <span class="bright">@(technology + " " + product)</span></p>
+</div>
+
+<div>
+    <p>The current date and time is: @rightNow</p>
+    <p>The URL of the current page is<br /><br /><code>@Request.Url</code></p>
+</div>
